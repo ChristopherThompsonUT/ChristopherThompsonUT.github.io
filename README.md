@@ -1,3 +1,3 @@
 # ChristopherThompsonUT.github.io
 
-Test Content
+This Repository is meant to be the main hub for my portfolio site
