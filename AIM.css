@@ -1,4 +1,9 @@
-tooltip {
+h1, h2, p, li, i{
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+
+.tooltip {
   position: relative;
   display: inline-block;
   border-bottom: 1px dotted black;
