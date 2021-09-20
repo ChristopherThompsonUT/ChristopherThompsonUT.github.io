@@ -1,17 +1,29 @@
 h1, h2, p, li, i{
-	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-family: Tahoma, Verdana, Segoe, sans-serif;	
 }
 
+.main {
+	padding: 5%;
+}
+
+.header{
+	background:#9e1b32;
+	display:inline-block;
+	float:top;
+	padding:3%;
+	margin:0;
+	color:white;
+}
 
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
+  border-bottom: 1px dotted white;
 }
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 240px;
+  width: 250px;
   background-color: black;
   color: #fff;
   text-align: center;

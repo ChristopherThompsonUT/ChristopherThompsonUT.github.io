@@ -3,20 +3,25 @@
 
 <head>
 	<title>Algorithmic Detection of Pediatric Chewing Sequences Using the Automatic Ingestion Monitor (AIM) </title>
-	<link rel="stylesheet" href = "AIM.css" type = "text/css">
-
+	<link rel="stylesheet" href = "./Assets/AIM.css" type = "text/css">
+	<style>body{margin:0;}</style>
 </head>
 
 <body>
 
-<h1>Algorithmic Detection of Pediatric Chewing Sequences Using the Automatic Ingestion Monitor (AIM)</h1>
 
+	<div class="header">
+<h1>Algorithmic Detection of Pediatric Chewing Sequences Using the Automatic Ingestion Monitor (AIM)</h1>
 <h2>    Christopher Thompson<sup class = "tooltip">a<span class="tooltiptext"> Department of Electrical and Computer Engineering, Weber State University, Ogden, UT</span></sup>
 	, Memorie Gosa<sup class = "tooltip">b<span class ="tooltiptext"> Department of Communicative Disorders, University of Alabama, Tuscaloosa AL</span></sup>
 	, Edward Sazonov<sup class = "tooltip">c<span class="tooltiptext"> Department of Electrical and Computer Engineering, University of Alabama, Tuscaloosa AL</span></sup></h2>
 
 <p><sup>a</sup>cthompson2@mail.weber.edu,<sup>b</sup>memorie.gosa@ua.edu,<sup>c</sup>esazonov@ua.edu</p>
 
+	</div>
+
+
+<div class="main">
 <h2>Introduction</h2>
 <p>Issues in chewing and swallowing have led to higher rates of malnutrition, poorer immune responses, and higher mortality rates in children<sup>1</sup>.The current clinical standard for measuring chewing ability is the “Test of Masticating and Swallowing Solids (TOMASS)”. During this test, clinicians take note of the number of bites, chews, masticatory cycles, and the time to ingest a cracker<sup>2</sup>.  The Automatic Ingestion Monitor (AIM) sensor system has the potential to provide a completely objective assessment of chewing skills in children.</p>
 
@@ -42,11 +47,11 @@
 	</ul>	
 </ul>
 
-<i> Insert Photo of Particpant Here </i>
+<img src="./Assets/Participant.png" alt="A young male participant with the piezoelectric attached to the right cheek" width=50%, height=50% align="center">
 
 <p>The data collected from the jaw were filtered to signals in the bandwidth of 0.5-2.5 Hz applied in MATLAB. This portion of the signal in this range are the frequency at which the jaw moves during chewing. This post-processed signal was then segmented into each type of food eaten (Fig. 2). The videos were manually reviewed to determine the ground truth number of chews in each segment. </p>
 
-<i> Insert Photo of segmented signal </i>
+ <img src="./Assets/Epoch Display.svg" width=75%, height = 75%>
 
 <p>After each signal was filtered and segmented, we applied the following algorithms to detect peaks:
 Method 1 – Peak Detection by a Static Value (Fig. 3A).
@@ -72,12 +77,14 @@ Peak detecting threshold = a linear combination of properties of the signal & pa
 <p>In addition to this peak detection algorithm, a classifier trained on this data set will be able to drive down the error percentages to an acceptable level. In addition, a video classification algorithm that determines bites and chews from a video recording is being refined to detect bites and chews in a pediatric population. </p>
 
 <h2>Acknowledgments & Funding</h2>
-<p>We would like to acknowlege Delwar Hossain<sup class = "tooltip">*<span class = "tooltiptext"> (Department of Electrical and Computer Engineering, University of Alabama, Tuscaloosa, AL)</span></sup> for his assistance to this project</p>
+<p>We would like to acknowlege Delwar Hossain<sup class = "tooltip" style="border-bottom:1px dotted black;">*<span class = "tooltiptext">Department of Electrical and Computer Engineering, University of Alabama, Tuscaloosa, AL</span></sup> for his assistance to this project</p>
+<p> This project was funded by NSF Award Abstract #1852161</p>
+
 
 <h2>References</h2>
 <p>1.) Heckathorn, D.-E., Speyer, R., Taylor, J., & Cordier, R. (2015). Systematic Review: Non-Instrumental Swallowing and Feeding Assessments in Pediatrics. Dysphagia, 31(1), 1–23. https://doi.org/10.1007/s00455-015-9667-5</p> 
 <p>2.) Huckabee, M. L., McIntosh, T., Fuller, L., Curry, M., Thomas, P., Walshe, M., McCague, E., Battel, I., Nogueira, D., Frank, U., den Engel‐Hoek, L., & Sella‐Weiss, O. (2017). The Test of Masticating and Swallowing Solids (TOMASS): reliability, validity and international normative data. International Journal of Language & Communication Disorders, 53(1), 144–156. https://doi.org/10.1111/1460-6984.12332</p> 
 
-
+</div>
 </body>
 </html>
