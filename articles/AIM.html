@@ -4,7 +4,7 @@
 <head>
 	<title>Algorithmic Detection of Pediatric Chewing Sequences Using the Automatic Ingestion Monitor (AIM) </title>
 	<link rel="stylesheet" href = "./Assets/AIM.css" type = "text/css">
-	<style>body{margin:0;}</style>
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 
 <body>
@@ -47,11 +47,11 @@
 	</ul>	
 </ul>
 
-<img src="./Assets/Participant.png" alt="A young male participant with the piezoelectric attached to the right cheek" width=50%, height=50% align="center">
+<img src="./Assets/Participant.png" alt="A young male participant with the piezoelectric attached to the right cheek" width=50%, height=50% class="center">
 
 <p>The data collected from the jaw were filtered to signals in the bandwidth of 0.5-2.5 Hz applied in MATLAB. This portion of the signal in this range are the frequency at which the jaw moves during chewing. This post-processed signal was then segmented into each type of food eaten (Fig. 2). The videos were manually reviewed to determine the ground truth number of chews in each segment. </p>
 
- <img src="./Assets/Epoch Display.svg" width=75%, height = 75%>
+ <img src="./Assets/Epoch Display.svg" width=75%, height = 75%, class="center">
 
 <p>After each signal was filtered and segmented, we applied the following algorithms to detect peaks:
 Method 1 – Peak Detection by a Static Value (Fig. 3A).

@@ -1,7 +1,19 @@
-h1, h2, p, li, i{
+body {
+	margin:0;
 	font-family: Tahoma, Verdana, Segoe, sans-serif;	
 }
 
+p,li, ul,  i{
+	font-size:1vw;
+}
+
+h1{ 
+	font-size: 1.75vw;
+}
+
+h2{
+	font-size: 1.25vw;
+}
 .main {
 	padding: 5%;
 }
@@ -13,6 +25,37 @@ h1, h2, p, li, i{
 	padding:3%;
 	margin:0;
 	color:white;
+	width:94%;
+}
+
+@media screen and (max-width:750px){
+
+.header{
+	width:94%;
+}
+
+p, ul, li, i{
+        font-size:3vw;
+}
+
+h1{ 
+        font-size: 6vw;
+}
+
+h2{
+        font-size: 5vw;
+
+}
+.tooltip .tooltiptext {
+	width:15%;
+
+}
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .tooltip {
