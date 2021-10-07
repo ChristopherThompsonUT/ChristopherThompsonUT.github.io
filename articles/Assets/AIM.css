@@ -1,6 +1,12 @@
+html{
+
+
+}
+
 body {
 	margin:0;
 	font-family: Tahoma, Verdana, Segoe, sans-serif;	
+	overflow-x: hidden;
 }
 
 p,li, ul,  i{
@@ -22,18 +28,36 @@ h2{
 	background:#9e1b32;
 	display:inline-block;
 	float:top;
-	padding:3%;
+	padding:5%;
 	margin:0;
 	color:white;
-	width:94%;
+	width:96vw;
 }
 
 @media screen and (max-width:750px){
+
+	 html{
+     		 width: 100vw;
+	     	 overflow-x: hidden;
+   	 }
 	.header{
-		width:94%;
+		text-align:center;
+		padding:3%;
 	}
-	p, ul, li, i{
-        	font-size:3vw;
+	.main{
+		padding:5%;
+	}
+
+	p, ul, li{
+        	font-size:3.5vw;
+	}
+
+	i{
+		font-size:2.5vw;
+	}
+
+	img{	
+		min-width:100%
 	}
 	h1{ 
         	font-size: 6vw;
@@ -42,14 +66,19 @@ h2{
         	font-size: 5vw;
 	}	
 	.tooltip .tooltiptext {
-		width:15%;
-		font-size:6vw;
-	}}
+		width:5%;
+		font-size:1.6vw;
+	}
+	
+	.desktop{
+		display:none;
+	}
+}	
+
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
 }
 
 .tooltip {
@@ -77,4 +106,10 @@ h2{
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+@media screen and (min-width: 750px){
+	.mobile{
+		display: none;
+	}
 }

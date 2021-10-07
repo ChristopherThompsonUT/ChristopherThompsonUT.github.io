@@ -32,7 +32,7 @@
 <p>The first portion of this study had seventeen participants (8 female and 9 male), between the age of 2-10 years old (MEAN=6.47, STD = 2.64). The guardians of each participant and participants were asked to fill out a consent form, share medical history, and give a three-day feeding history.</p>
 
 
-<p>The AIM sensor system was put on the participants, and participants were instructed to participate in the following activities: </p> 
+<p>The AIM sensor system was put on the participants (Figure 1), and participants were instructed to participate in the following activities: </p> 
 
 <ul>
 <li>talking </li>
@@ -43,44 +43,61 @@
 	<li>a meltable solid (graham crackers)</li>
 	<li>a cubed solid (cubed ham or a fruit cup)</li>
 	<li>a soft material (muffins)</li>
-	<li>a hard material (fruit leather or a CLIF bar)</li>
+	<li>a hard material (fruit leather or a CLIF bar)</li >
 	</ul>	
 </ul>
 
+
+<span class="desktop">TEST_Desktop</span>
+
+<span class="mobile">TEST_Mobile</span>
 <img src="./Assets/Participant.png" alt="A young male participant with the piezoelectric attached to the right cheek" width=50%, height=50% class="center">
+<i> Figure 1: A Screenshot of a participant in the middle of the activities. The AIM sensor is placed on the right cheek, above the masseter muscle. A small "click" is included to denote when each food type begins.</i>
 
 <p>The data collected from the jaw were filtered to signals in the bandwidth of 0.5-2.5 Hz applied in MATLAB. This portion of the signal in this range are the frequency at which the jaw moves during chewing. This post-processed signal was then segmented into each type of food eaten (Fig. 2). The videos were manually reviewed to determine the ground truth number of chews in each segment. </p>
 
- <img src="./Assets/Epoch Display.svg" width=75%, height = 75%, class="center">
+<img src="./Assets/Epoch Display.png" class="center" height=75% width=75% alt="The chewing signal from the procedure broken up into parts. The signal has semi-opaque blocks indicating what parts of the chewing signal correspond with each part of the procedure.">
 
-<p>After each signal was filtered and segmented, we applied the following algorithms to detect peaks:
-Method 1 – Peak Detection by a Static Value (Fig. 3A).
-Peak detecting threshold = a certain value – a value was found that minimizes the error of all participants. This is a “One Size Fits All Method.” and the benchmark method.
-Peak detecting threshold = a percent a property of the signal – a percent of the property of the signal was found that minimizes the error of all participants.
-Method 2 – Delta Peak Detection Method (Fig. 3B)
-Peak detecting threshold = a percent of a single property of the signal 
-Peak detecting threshold = a linear combination of properties of the signal & participants (Fig.4). 
-</p>
+<i>Figure 2: The chewing signal from the procedure broken up into parts. The signal has semi-opaque blocks indicating what parts of the chewing signal correspond with each part of the procedure.</i>
 
-<i>Slideshow of Methods</i>
+ <p>This article will go over two methods; a baseline method of detecting chews and the chewing detection method</p>
+ <p> Our baseline method to detect chews used a value of strain response (y-value) that minimized the error percentage of each food texture.Chews were detected based on if a peak had a greater magnitude than the value, it was considered a chew. (Fig. 3, <span class="desktop">Left</span><span class="mobile">Top</span>)</p>
+ <p>Our chewing detection method used threshold equal to the standardized percentage of the mean absolute value of each chewing signal for each food texture. Chews were detected based on if the distance between a peak and subsequent valley exceeded this threshold. (Fig. 3, <span class="desktop">Right</span><span class="mobile">Bottom</span>)</p>
 
-<p>Of the original 17 participants, five participant’s information had to be discarded due to loss of data or the inability to sync the AIM data to the video recording times.</p>
+<picture>
+  <source srcset="./Assets/Algo_Mobile.png" media="(max-width: 750px)">
+  <source srcset="./Assets/Algo_Desktop.png">
+  <img src="./Assets/Logos_Desktop.png" alt="Two charts comparing the chewing detection methods. The baseline method has a segment of a chewing signal, and a horizontal line. Any maximum peaks above this horizontal line are contained in a small circle. These Circled Peaks are counted as chews. The chewing detection method has a segment of a chewing signal and vertical lines spanning from maximum peaks to minimum valleys. These vertical lines are counted as chews" width=50% height=50% class="center">
 
-<p>The average unsigned error percentage rate was computed for each method on data provided by the entire group. A two-sample t-test was conducted with, testing for significance from the mean and standard deviation of Method 1A. </p>
+</picture> 
+
+<i>Figure 3: <span class="desktop">Side by side c</span><span class="mobile">C</span>omparison of the baseline method <span class="desktop">(left)</span><span class="mobile">(top)</span> and the chewing detection method <span class="desktop">(right)</span><span class="mobile">(bottom)</span>.</i>
+
 
 <h2>Results & Conclusion</h2>
-<p>Method 1B and 2A were found to have the lowest values of minimal error percentages. Many of the variable combinations in Method 2B performed poorer than using Methods 1B and 2A.</p>
+<p>The average error percentage rate was computed for each method and portion of the procedure on data provided by the entire group. The comparison to our chewing detection algorithm was found to confirm the alternative hypotheses for each portion of a two-sample t-test (p < 0.05) ((puree (p = 0.031), meltable solid (p=0.005), cubed solid (p=0.015), soft material (p=0.004), hard material (p=0.035), overall (p=0.015)) (Fig. 4) </p>
 
-<p>The comparison of our best performing method was found to confirm the alternative hypotheses for each portion of a two-sample t-test (puree (p = 0.031), meltable solid (p=0.005), cubed solid (p=0.015), soft material (p=0.004), hard material (p=0.035), overall (p=0.015)). Using our best method, we were able to drive the overall chewing detection error down from 63.9% to 24.5% (Figure 1).  </p>
+<img src="./Assets/Final_Result_Chart.png" alt="The Final Results of the Experiement. The chart compares the error percentage rates for the baseline method and chewing detection method. The error percentages for the baseline method are 106.0, 55.8, 57.8, 49.5 50.4 and 63.9 for the baseline method detection of Purees, meltable solids, cubed solids, soft materials, hard materials and the overall error. The error percentages for the chewing algorithm are 35.5, 16.9, 25.4 18.1 26.6, 24.5 for Purees, meltable solids, cubed solids, soft materials, hard materials and the overall error." width=50%, height=50% class="center">
+
+<i>Figure 4: Results comparing absolute error percentages in the baseline method to the chewing detection method</i>
+
 
 <h2>Further Direction</h2>
-<p>In addition to this peak detection algorithm, a classifier trained on this data set will be able to drive down the error percentages to an acceptable level. In addition, a video classification algorithm that determines bites and chews from a video recording is being refined to detect bites and chews in a pediatric population. </p>
+<p>In addition to this peak detection algorithm, a classifier trained on this data set will be able to drive down the error percentages to an acceptable level. In addition, a video classification algorithm that determines bites and chews from a video recording is being refined to detect bites and chews in a pediatric population. Finally, we hope to use the newer version of the AIM sensor system to detect chews. </p>
 
 <h2>Acknowledgments & Funding</h2>
 <p>We would like to acknowlege Delwar Hossain<sup class = "tooltip" style="border-bottom:1px dotted black;">*<span class = "tooltiptext">Department of Electrical and Computer Engineering, University of Alabama, Tuscaloosa, AL</span></sup> for his assistance to this project</p>
-<p> This project was funded by NSF Award Abstract #1852161</p>
+<p>This material is based upon work partially supported by the National Science Foundation under Grant No. 1852161. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation</p>
 
 
+<picture>
+  <source srcset="./Assets/Logos_Mobile.png" media="(max-width: 750px)">
+  <source srcset="./Assets/Logos_Desktop.png">
+  <img src="./Assets/Logos_Desktop.png" alt="Logos for the National Science Foundation, University of Alabama Electrical and Computer Engineering, and University of Alabama Department of Communicative Disorders" width=50% height=50% class="center">
+
+</picture> 
+<br>
+<br>
 <h2>References</h2>
 <p>1.) Heckathorn, D.-E., Speyer, R., Taylor, J., & Cordier, R. (2015). Systematic Review: Non-Instrumental Swallowing and Feeding Assessments in Pediatrics. Dysphagia, 31(1), 1–23. https://doi.org/10.1007/s00455-015-9667-5</p> 
 <p>2.) Huckabee, M. L., McIntosh, T., Fuller, L., Curry, M., Thomas, P., Walshe, M., McCague, E., Battel, I., Nogueira, D., Frank, U., den Engel‐Hoek, L., & Sella‐Weiss, O. (2017). The Test of Masticating and Swallowing Solids (TOMASS): reliability, validity and international normative data. International Journal of Language & Communication Disorders, 53(1), 144–156. https://doi.org/10.1111/1460-6984.12332</p> 
