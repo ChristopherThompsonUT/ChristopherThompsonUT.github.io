@@ -8,12 +8,27 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./articles/Assets/banner_mechanism.js" defer></script>
+	<style>
+	@media (max-width: 767px) { /* Target mobile devices with a maximum width of 767px */
+	  .jumbotron {
+		padding-top: 50%; /* Increase padding for mobile devices */
+	  }
+	}
+	
+		@media (min-width: 767px) { /* Target mobile devices with a maximum width of 767px */
+	  .jumbotron {
+		padding-top: 10%;/* Increase padding for mobile devices */
+	  }
+	}
+	</style>
+
 </head>
 
 <body>
 
-<div class="jumbotron text-center" style="background: url(./articles/Assets/platonicshapes.png) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;color:white;box-shadow: inset 0 0 0 1000px rgba(34,59,81,.6);">
-  <h2 style="">Christopher Thompson - Weber State University</h2>
+<div class="jumbotron text-center" style="height: 600px; background:  no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;color:white;box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);">
+  <h1>Christopher Thompson - Weber State University</h2>
   <p>Online Portfolio</p>
 </div>
 
@@ -32,7 +47,7 @@
 	      <a href="https://ChristopherThompsonUT.github.io/articles/AIM">
 	      Algorithmic Detection of Chews and Swallows Using the Automated Ingestion Monitor (AIM)
 	      </a></h3>
-	      <p>A formal article of the research done during Engineering Sensors, Systems, and Signal Processing for Speech Pathology. Presented at Biomedical Engineering Society Conference, 2021</p>
+	      <p>An article version of the research done during Engineering Sensors, Systems, and Signal Processing for Speech Pathology. </p><p>Presented at Biomedical Engineering Society Conference (BMES), 2021</p>
 	    </div>
 	    <div class="col-sm-6">
 	      <h3>
@@ -43,25 +58,34 @@
 	
 
 	  <div class="row">
+		
+		<div class="col-sm-6">
+	      <h3><a href="https://ieeexplore.ieee.org/document/10014924">Utilization of Impedance Disparity Incurred from Switching Activities to Monitor and Characterize Firmware Activities</a></h3>
+		  <p>An article version of the research done during Security of Smart Things REU </p><p> Presented at IEEE Conference on Physical Assurance and INspection of Electronics (PAINE) , 2022 </p>
+	    </div>
 	    
 	    <div class="col-sm-6">
 	      <h3><a href="https://drive.google.com/file/d/1hCY8O5YDfS2a9pnojj9_iu2T9bvnke5C/view?usp=sharing">Resume</a></h3>
-	    </div>
+	    </div>	
 	  </div>
-	
-	<div class="row">
+	<div class="fixed-bottom">
+	<div class="row" style="background-color:rgba(0,0,0,.6);color:white;">
 	<div class="col-sm-12">
 		<h1>Contact Info </h1>
-		<p>Phone: (385)383-4644</p>
-		<p>Email: crthompson530@gmail.com</p>
-		<p><a href="https://www.linkedin.com/in/christopher-thompson-258651217/">LinkedIn</a></p>
+		<p>Phone: Avaible Upon Request</p>
+		<p>Email: crthompson530-(at)-gmail-(dot)-com</p>
+		<p><u><a href="https://www.linkedin.com/in/christopher-thompson-258651217/" style="color:white">LinkedIn</a></u></p>
+		<p> Images were generated, using VQGAN-CLIP and upscaled using <u><a href="http://bigjpg.com" style="color:white">BigJPG.com</a></u>. 
+		A colab notebook to generate these images can be found <u><a href = "https://colab.research.google.com/drive/1go6YwMFe5MX6XM9tv-cnQiSTU50N9EeT" style="color:white">here</a></u>.
+		The specific image in the top banner can be found <u><a id="image_link" href = "" style="color:white">here</a></u>. 
+		Finally, a repo with all images can be found <u><a href="https://github.com/ChristopherThompsonUT/site-images" style="color:white">here</a></u></p>
 		</div>
+		
 	</div>
 
-	
-	
+	</div>
+	</div>
 
-</div>
 
 </body>
 </html>
