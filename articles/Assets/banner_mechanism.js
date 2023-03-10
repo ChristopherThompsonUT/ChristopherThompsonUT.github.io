@@ -2,7 +2,7 @@ const githubRepoUrl = 'https://api.github.com/repos/ChristopherThompsonUT/site-i
 const rawContentUrls = [];
 
 async function getRawContentUrls() {
-  const response = await fetch(githubRepoUrl);
+  const response = await fetch(`${githubRepoUrl}/contents?ref=main`);
   const data = await response.json();
 
   for (let i = 0; i < data.length; i++) {
