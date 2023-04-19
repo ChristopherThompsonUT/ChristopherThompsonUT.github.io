@@ -1,10 +1,319 @@
 <!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	 <meta charset="utf-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    code {
+      white-space: pre-wrap !important;
+      display: block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 10px;
+      line-height: 1.5;
+      background-color: #f7f7f7;
+      padding: 25px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+	  display: block;
+        margin: auto;
+    width: 80%;
+    }
 
-<html>
-	<body>
-		<h1>Hello World</h1>
-		<p>This is a viewable Paragraph</p>
-	</body>
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 { 
+}
+.sc1 {
+	color: #008000;
+}
+.sc2 {
+	color: #FF0000;
+}
+.sc5 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc7 {
+	color: #FF8000;
+}
+.sc9 {
+	color: #FF00FF;
+}
+.sc10 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc11 {
+}
+.sc14 {
+	font-weight: bold;
+	color: #880088;
+}
 
+html{
+
+
+}
+
+body {
+	margin:0;
+	font-family: Tahoma, Verdana, Segoe, sans-serif;	
+	overflow-x: hidden;
+}
+
+.main {
+	padding: 5%;
+}
+
+p, h2{
+	padding: 15px;
+}
+
+@media screen and (max-width:750px){
+
+	 html{
+     		 width: 100vw;
+	     	 overflow-x: hidden;
+   	 }
+	.header{
+		text-align:center;
+		padding:3%;
+	}
+	.main{
+		padding:5%;
+	}
+
+
+
+
+	img{	
+		min-width:100%
+	}
+	
+	
+	.desktop{
+		display:none;
+	}
+}	
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+  </style>
+
+
+
+
+</head>
+<div class="jumbotron text-center" style="background-color: #000E54;padding:16px;color:white">
+<h1>N-Key Encryption: A Novel Encryption Method</h1>
+</div>
+
+<body style="background-color:#fafafa;">
+
+<p>In 2011, during the Sunday Morning session of the General Conference of the Church of Jesus Christ of Latter-Day Saints, I encountered a thought-provoking mathematical statement that has stayed with me over the years:</p>
+
+<blockquote>
+  <p>"How many straight lines can you draw through a single point on a piece of paper? The answer is infinite… However, if there is a second point on that piece of paper, how many straight lines could you draw between these two points? Only one." <a href="https://www.churchofjesuschrist.org/study/general-conference/2011/10/the-book-of-mormon-a-book-from-god?lang=eng">source</a></p>
+</blockquote>
+
+<p>The idea of an infinite number of polynomials passing through an insufficient number of points is a fascinating concept. I envisioned it as a group of individuals, each with their own key to unlock a specific lock, coming together to open a chest containing a secret message. The secret message can only be decoded when all the points are present; otherwise, it remains encrypted.</p>
+
+<p>Inspired by this concept, I aimed to apply it in a practical manner. As a result, I developed a novel encryption method that uses a polynomial to represent a code that necessitates n keys to decipher a message and unveil its plaintext.</p>
+
+<p>This article presents my work in implementing this n-key encryption technique.</p>
+
+<h2> The Mathematical Explanation </h2>
+
+<p>A polynomial <script type="math/tex">f(x)</script> can be represented in two ways. The first is a sum of coefficients multiplied by powers of an independent variable, or </p>
+
+<p class="center">
+<script type="math/tex">
+  f(x)=a_nx^n + a_{n-1}x^{n-1} + ... + a_2x^2 + a_1x+a_0
+</script>
+</p>
+
+<p>Notice that our highest term power is n, which we say our polynomial is of degree n.</p>
+
+<p>The second form demonstrates the mathematical principle of needing n+1 different points to describe a polynomial.</p>
+
+<p>
+
+Given a set of n+1 distinct data points <script type="math/tex">(x_0, y_0), (x_1, y_1), ..., (x_n, y_n)</script>, where <script type="math/tex">x_i</script> and <script type="math/tex">y_i</script> are real numbers, we want to find a polynomial f(x) of degree n such that <script type="math/tex">f(x_i) = y_i</script> for  <script type="math/tex">i = 0, 1, ..., n.</script>
+
+</p>
+<p>
+We can also represent the data points as a system of linear equations:
+</p>
+<p  class="center">
+<script type="math/tex">
+\begin{bmatrix}
+1 & x_0 & x_0^2 & \cdots & x_0^n \\
+1 & x_1 & x_1^2 & \cdots & x_1^n \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & x_n & x_n^2 & \cdots & x_n^n \\
+\end{bmatrix}
+\begin{bmatrix}
+a_0 \\ a_1 \\ \vdots \\ a_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+y_0 \\ y_1 \\ \vdots \\ y_n
+\end{bmatrix}
+</script>
+</p>
+
+<p>This can be written in matrix form as:<script type="math/tex">X * A = Y</script></p>
+<p>
+
+<ul><li>where X is the Vandermonde matrix:
+<p class="center">
+<script type="math/tex">
+X = \begin{bmatrix}1 & x_0 & x_0^2 &  ... &  x_0^n\\
+     1 &  x_1 &  x_1^2 &  ... &  x_1^n\\
+     \vdots & \vdots & \vdots & \ddots  & \vdots \\
+     1 &  x_n &  x_n^2 & ... &  x_n^n\\
+	 \end{bmatrix}
+</script>
+</p>
+</li>
+
+<li>A is the column vector of coefficients:
+<script type="math/tex">
+A = [a_0\ a_1\ ...\ a_n]^T
+</script>
+</li>
+
+<li>and Y is the column vector of y-values:
+<script type="math/tex">
+Y = [y_0\ y_1\ ...\ y_n]^T
+</script>
+</li>
+</ul>
+</p>
+<p>
+We can solve for the coefficients C using matrix inversion:
+<script type="math/tex">
+A = inv(X) * Y
+</script>
+</p>
+<p>
+Once we have the coefficients, we can construct the polynomial f(x) and use it to interpolate values between the data points.
+</p>
+
+<h2>Initial Attempt</h2>
+
+<p>My first attempt to implement this code came back in my late high school experience. Back then, I thought the best way to codify these points was as an image, a simple example image is given below.</p>
+
+
+<img src='img1.png' alt = "example image" style="width:65%;display: block; margin: 0 auto;">
+
+<p>The image consists of 3 sets of 2 points each. Let's focus on the first 2 rows. The colors that are not shared between the rows correspond to the x-coordinate of the points. Specifically, they indicate the positions of the 1s in the binary representation of the x-coordinate. The color that is common to both rows indicates the positions of the 0s in the binary representation.</p>
+<p> For example, our first row would have the binary string "101000...00010" because the greenish colors represent ones and the scarlet represent 0.</p>
+<p>The value of the y-coordinate for each point is determined by the hex code of the colors that are not shared between the rows of the corresponding set. This means that our first row, with the pixels with the "#7EE568" color would have a y-value of 8316264.</p>
+<p>For the pixels on the far left of the image, I used a color scheme where black indicates a negative x-coordinate and white indicates a positive x-coordinate.</p>
+<p>Once we have the coordinates for each point, we can graph them and find the value of f(0) for each point.</p>
+<p>Finally, we can convert the message to numerical form by adding the value of f(0) to the product of the common color between the rows (converted to base 10) and 16<sup>6</sup>.</p>
+<p>I have the code that implements these steps and have visited it from time to time; however, I would consider it juvenile and "spaghetti" by most standards. However, like Todd Howard once said, "It Just Works." The repo is <a href="https://github.com/ChristopherThompsonUT/n-key-encryption">here</a>.</p>
+
+<h2> The Upgrade - Using Rational Numbers</h2>
+<p>While my first approach works sufficiently for simple encryptions, it fails on a couple of key points:</p>
+
+<ul>
+<li>Negative y-values are not allowed by our schema, thus limiting our range to values between 0 and  16<sup>6</sup>.</li>
+<li>Our values of x are effectively limited to integers. Due to floating point errors in the code caused by division, I wanted to limit the number of possible errors in the code to increase the accuracy of the encoded data. </li>
+<li>Asserting that all points fit the previous two conditions is hard, especially so for polynomials of higher degrees. It becomes necessary to find a point where x != 0 to complete our polynomial.</li>
+<li>False Keys: An idea I've wanted to implement to "throw off" anybody who didn't a correct key. Essentially, they'd cause the output to become pure garbage because they'd have a wrong point thus causing your polynomial to be different than what you expected.</li>
+<ul>
+<li>It is important to note that with this, the higher polynomial you have and the closer your true points equal n/2, the longer it would take to crack if an outside party was not able to determine which keys are true or false.</li>
+</ul>
+</ul>
+
+<p>To address these issues, I consulted a few math friends who suggested creating a new data type which emulates rational numbers to prevent this problem.</p>
+<p>By having this system based on rational numbers, we are able to make the assertion that for our operation of division, we will end up with another rational number. This is not necessarily true with integers.</p>
+
+<p>We'll use Python's built-in fraction module, which is capable of expressing rational numbers to perfect precision, thus addressing the issues that come with floating point representation. We will also forgo the previous image standard, as this limits our potential y-values.</p>
+
+<p>The Python to perform this polynomial interpolation that encodes the message "100" using rational numbers and a degree 4 polynomial is as follows:</p>
+
+
+<code style="white-space: pre-wrap;overflow-x: auto;"><div style=" white-space: pre; line-height: 1;  "><span class="sc11">message</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc2">100</span><span class="sc0">
+</span><span class="sc11">n</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc2">5</span><span class="sc0">
+
+</span><span class="sc5">import</span><span class="sc0"> </span><span class="sc11">numpy</span><span class="sc0"> </span><span class="sc5">as</span><span class="sc0"> </span><span class="sc11">np</span><span class="sc0">
+</span><span class="sc5">from</span><span class="sc0"> </span><span class="sc11">fractions</span><span class="sc0"> </span><span class="sc5">import</span><span class="sc0"> </span><span class="sc11">Fraction</span><span class="sc0">
+
+</span><span class="sc5">def</span><span class="sc0"> </span><span class="sc9">inverse_matrix</span><span class="sc10">(</span><span class="sc11">A</span><span class="sc10">):</span><span class="sc0">
+    </span><span class="sc7">"""
+    Computes the inverse of a matrix A using row reduction
+    and ndarrays with object type Fractions.
+    """</span><span class="sc0">
+    </span><span class="sc11">n</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">.</span><span class="sc11">shape</span><span class="sc10">[</span><span class="sc2">0</span><span class="sc10">]</span><span class="sc0">
+    
+    </span><span class="sc1"># Create an identity matrix with the same dimensions as A</span><span class="sc0">
+    </span><span class="sc11">I</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">np</span><span class="sc10">.</span><span class="sc11">array</span><span class="sc10">([[</span><span class="sc11">Fraction</span><span class="sc10">(</span><span class="sc2">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc2">1</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc11">j</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc11">Fraction</span><span class="sc10">(</span><span class="sc2">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc2">1</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">j</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc14">range</span><span class="sc10">(</span><span class="sc11">n</span><span class="sc10">)]</span><span class="sc0"> </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc14">range</span><span class="sc10">(</span><span class="sc11">n</span><span class="sc10">)])</span><span class="sc0">
+
+    
+    </span><span class="sc1"># Concatenate A and I to create an augmented matrix</span><span class="sc0">
+    </span><span class="sc11">M</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">np</span><span class="sc10">.</span><span class="sc11">concatenate</span><span class="sc10">((</span><span class="sc11">A</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">I</span><span class="sc10">),</span><span class="sc0"> </span><span class="sc11">axis</span><span class="sc10">=</span><span class="sc2">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">dtype</span><span class="sc10">=</span><span class="sc11">Fraction</span><span class="sc10">)</span><span class="sc0">
+    
+    </span><span class="sc1"># Perform row reduction on M</span><span class="sc0">
+    </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc14">range</span><span class="sc10">(</span><span class="sc11">n</span><span class="sc10">):</span><span class="sc0">
+        </span><span class="sc1"># Divide the ith row by the diagonal element</span><span class="sc0">
+        </span><span class="sc11">div</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">M</span><span class="sc10">[</span><span class="sc11">i</span><span class="sc10">][</span><span class="sc11">i</span><span class="sc10">]</span><span class="sc0">
+        </span><span class="sc11">M</span><span class="sc10">[</span><span class="sc11">i</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">M</span><span class="sc10">[</span><span class="sc11">i</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">/</span><span class="sc0"> </span><span class="sc11">div</span><span class="sc0">
+
+        </span><span class="sc1"># Subtract the ith row from all other rows to eliminate the ith column</span><span class="sc0">
+        </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">j</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc14">range</span><span class="sc10">(</span><span class="sc11">n</span><span class="sc10">):</span><span class="sc0">
+            </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">!=</span><span class="sc0"> </span><span class="sc11">j</span><span class="sc10">:</span><span class="sc0">
+                </span><span class="sc11">sub</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">M</span><span class="sc10">[</span><span class="sc11">j</span><span class="sc10">][</span><span class="sc11">i</span><span class="sc10">]</span><span class="sc0">
+                </span><span class="sc11">M</span><span class="sc10">[</span><span class="sc11">j</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">M</span><span class="sc10">[</span><span class="sc11">j</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">-</span><span class="sc0"> </span><span class="sc11">sub</span><span class="sc0"> </span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">M</span><span class="sc10">[</span><span class="sc11">i</span><span class="sc10">]</span><span class="sc0">
+
+    </span><span class="sc1"># The inverse of A is the right half of the augmented matrix M</span><span class="sc0">
+    </span><span class="sc11">A_inv</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">M</span><span class="sc10">[:,</span><span class="sc0"> </span><span class="sc11">n</span><span class="sc10">:]</span><span class="sc0">
+
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">A_inv</span><span class="sc0">
+
+
+</span><span class="sc1">#Compute random matrix of values except for x = 0</span><span class="sc0">
+</span><span class="sc11">x_invertable</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc14">False</span><span class="sc0">
+</span><span class="sc5">while</span><span class="sc0"> </span><span class="sc5">not</span><span class="sc0"> </span><span class="sc11">x_invertable</span><span class="sc10">:</span><span class="sc0">
+    </span><span class="sc11">x_values</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">[</span><span class="sc11">Fraction</span><span class="sc10">(</span><span class="sc11">ii</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">ii</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc10">(-</span><span class="sc2">1</span><span class="sc10">)**</span><span class="sc11">np</span><span class="sc10">.</span><span class="sc11">random</span><span class="sc10">.</span><span class="sc11">randint</span><span class="sc10">(</span><span class="sc2">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc2">2</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">n</span><span class="sc10">)*</span><span class="sc11">np</span><span class="sc10">.</span><span class="sc11">random</span><span class="sc10">.</span><span class="sc11">rand</span><span class="sc10">(</span><span class="sc11">n</span><span class="sc10">)*</span><span class="sc2">8</span><span class="sc10">]</span><span class="sc0">
+    </span><span class="sc11">index</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">np</span><span class="sc10">.</span><span class="sc11">random</span><span class="sc10">.</span><span class="sc11">randint</span><span class="sc10">(</span><span class="sc11">n</span><span class="sc10">);</span><span class="sc0"> 
+    </span><span class="sc11">x_values</span><span class="sc10">[</span><span class="sc11">index</span><span class="sc10">]=</span><span class="sc11">Fraction</span><span class="sc10">(</span><span class="sc2">0</span><span class="sc10">,</span><span class="sc2">1</span><span class="sc10">)</span><span class="sc0">
+    
+    </span><span class="sc11">X</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">np</span><span class="sc10">.</span><span class="sc11">vander</span><span class="sc10">(</span><span class="sc11">x_values</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">increasing</span><span class="sc10">=</span><span class="sc14">True</span><span class="sc10">)</span><span class="sc0">
+    </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc14">range</span><span class="sc10">(</span><span class="sc11">n</span><span class="sc10">):</span><span class="sc0">
+        </span><span class="sc11">X</span><span class="sc10">[</span><span class="sc11">i</span><span class="sc10">][</span><span class="sc2">0</span><span class="sc10">]=</span><span class="sc11">Fraction</span><span class="sc10">(</span><span class="sc2">1</span><span class="sc10">,</span><span class="sc2">1</span><span class="sc10">)</span><span class="sc0">
+    </span><span class="sc5">try</span><span class="sc10">:</span><span class="sc0">
+        </span><span class="sc11">X_inverse</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">inverse_matrix</span><span class="sc10">(</span><span class="sc11">np</span><span class="sc10">.</span><span class="sc11">copy</span><span class="sc10">(</span><span class="sc11">X</span><span class="sc10">))</span><span class="sc0">
+        </span><span class="sc11">x_invertable</span><span class="sc10">=</span><span class="sc14">True</span><span class="sc0">
+    </span><span class="sc5">except</span><span class="sc10">:</span><span class="sc0">
+        </span><span class="sc11">x_invertable</span><span class="sc10">=</span><span class="sc14">False</span><span class="sc0">
+
+</span><span class="sc1">#compute random f(x) values exceptp for f(0)</span><span class="sc0">
+</span><span class="sc11">Y</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">np</span><span class="sc10">.</span><span class="sc11">array</span><span class="sc10">([</span><span class="sc11">Fraction</span><span class="sc10">(</span><span class="sc11">ii</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">ii</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc11">np</span><span class="sc10">.</span><span class="sc11">random</span><span class="sc10">.</span><span class="sc11">rand</span><span class="sc10">(</span><span class="sc11">n</span><span class="sc10">)*</span><span class="sc2">8</span><span class="sc10">])</span><span class="sc0">
+</span><span class="sc11">Y</span><span class="sc10">[</span><span class="sc11">index</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">Fraction</span><span class="sc10">(</span><span class="sc11">message</span><span class="sc10">)</span><span class="sc0">
+
+</span><span class="sc1">#Calculate constants for polynomial</span><span class="sc0">
+</span><span class="sc11">A</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">np</span><span class="sc10">.</span><span class="sc11">dot</span><span class="sc10">(</span><span class="sc11">X_inverse</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">Y</span><span class="sc10">)</span><span class="sc0">
+
+</span><span class="sc1">#Calculate the last point from the past constants</span><span class="sc0">
+</span><span class="sc11">random_value</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">Fraction</span><span class="sc10">((-</span><span class="sc2">1</span><span class="sc10">)**</span><span class="sc11">np</span><span class="sc10">.</span><span class="sc11">random</span><span class="sc10">.</span><span class="sc11">randint</span><span class="sc10">(</span><span class="sc2">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc2">2</span><span class="sc10">)*</span><span class="sc11">np</span><span class="sc10">.</span><span class="sc11">random</span><span class="sc10">.</span><span class="sc11">rand</span><span class="sc10">()*</span><span class="sc2">8</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc11">x_values</span><span class="sc10">[</span><span class="sc11">index</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">random_value</span><span class="sc0">
+</span><span class="sc11">Y</span><span class="sc10">[</span><span class="sc11">index</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc14">sum</span><span class="sc10">([</span><span class="sc11">A</span><span class="sc10">[</span><span class="sc11">ii</span><span class="sc10">]*</span><span class="sc11">random_value</span><span class="sc10">**</span><span class="sc11">ii</span><span class="sc0"> </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">ii</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc14">range</span><span class="sc10">(</span><span class="sc11">n</span><span class="sc10">)])</span></div></body></code>
+
+<p>The rest of the code can be found on the GitHub Repository located <a href="https://github.com/ChristopherThompsonUT/n-key-encryption">here.</a></p>
+<p>You may notice that the files repeat the name "Esther", this is because I related this method to Biblical Esther, who needed multiple attempts to get her message to the King </p>
+</body>
 </html>
-
