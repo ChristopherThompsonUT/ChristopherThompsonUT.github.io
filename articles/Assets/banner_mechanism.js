@@ -26,7 +26,7 @@ return Array.from(rawContentUrls)[index];
 async function changeBackground() {
 const jumbotron = document.querySelector('.jumbotron');
 const imageUrl = await selectRawContentUrl();
-jumbotron.style.backgroundImage = url(${imageUrl});
+jumbotron.style.backgroundImage = "url(${imageUrl})";
 
 document.getElementById("image_link").href = imageUrl;
 }
