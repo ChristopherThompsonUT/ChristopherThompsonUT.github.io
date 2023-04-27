@@ -18,7 +18,7 @@ getRawContentUrls();
 function selectRawContentUrl() {
 const now = new Date();
 const minute = now.getMinutes();
-const fiveMinuteChunk = Math.floor(minute / 5);
+const fiveMinuteChunk = now.getSeconds() + 60*now.getMinutes() + 3600*now.getHours();
 const index = fiveMinuteChunk % rawContentUrls.size;
 return Array.from(rawContentUrls)[index];
 }
