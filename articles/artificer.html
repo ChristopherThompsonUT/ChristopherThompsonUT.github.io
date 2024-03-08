@@ -2,23 +2,206 @@
 <html>
 
 <head>
-	<title>Algorithmic Detection of Pediatric Chewing Sequences Using the Automatic Ingestion Monitor (AIM) </title>
+	<title>Artificer Intelligence: A Game Master’s Assistive Tool to Generate Magic Items </title>
 	<link rel="stylesheet" href = "./Assets/AIM.css" type = "text/css">
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	 <meta charset="utf-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min .js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+	
+	
+	<style>
+        .jumbotron {
+  background-image: url("./assets/banner.png");
+  background-size: cover;
+}
+
+.wordcloud {
+	height:"auto";
+	width:400px;
+}
+
+
+</style>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);	
+
+					
+					
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Category', 'Artificer Intelligence', 'ChatGPT'],
+          ['Creativity', 3.24947916666667, 4.19375],
+          ['Balance', 3.81927083333333, 3.128125],
+          ['Functionality', 3.8640625, 3.73958333333333],
+          ['Flavor', 2.93697916666667, 4.05520833333333],
+		  ['Versatility', 2.83645833333333, 2.97916666666667],
+		  ['Roleplaying Opportunities', 3.16614583333333, 3.72552083333333],
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Artificer Intelligence vs ChatGPT',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+	
+	<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawPieChart);
+
+      function drawPieChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Rarity', 'Number of Entries'],
+          ['Common',     875],
+          ['Uncommon', 3365],
+          ['Rare',  3927],
+          ['Very Rare', 2317],
+          ['Legendary',    1051],
+		  ['Artifact',    262],
+		  ['Other',    57]
+        ]);
+
+        var options = {
+          title: 'Rarity of Magic Item'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_1'));
+
+        chart.draw(data, options);
+		
+		var data = google.visualization.arrayToDataTable([
+          ['Type', 'Number of Entries'],
+          ['Armor',     783],
+          ['Potion', 439],
+          ['Ring',  487],
+          ['Rod', 501],
+          ['Scroll',    46],
+		  ['Staff ',    390],
+		  ['Wand',    284],
+		  ['Wondrous Item',    5547],
+		  ['Weapon ',    3481]
+        ]);
+		
+		var options = {
+          title: 'Type of Magic Item'
+        };
+		chart = new google.visualization.PieChart(document.getElementById('piechart_2'));
+		chart.draw(data, options);
+      }
+    </script>
+
+
 </head>
 
 <body>
 
 
-	<div class="jumbotron text-center" style="background-color:#92278F;color:white;padding:16px;">
+	<div class="jumbotron text-center" style="background-color:#92278F;color:black;padding:16px;"">
 <h2>Artificer Intelligence: A Game Master’s Assistive Tool to Generate Magic Items</h2>
-<h4>    Christopher Thompson<sup>a</sup>, Joshua Thompson<sup >b</sup></h4>
+<h4>Christopher Thompson<sup>a</sup></h4>
 
-<h6 style="font-size:10"><sup>a</sup> Department of Electrical and Computer Engineering, Weber State University, Ogden, UT: cthompson2@mail.weber.edu<br>
-<sup>b</sup> joshua-email.com<br>
-
+<h6 style="font-size:10"><sup>a</sup> Department of Electrical and Computer Engineering, Weber State University, Ogden, UT: crthompson530@gmail.com<br>
 	</div>
+	
+	
+<div style="padding:25px;">
+<h1>Introduction:</h1>
+<p>A tabletop role-playing game (TTRPG) provides written content or a block of rules that describes creatures and objects for the purpose of play. Game Masters (GMs), tasked with administering and moderating these rules, often find themselves compelled to create content beyond the confines of given prewritten content—a practice commonly known as "homebrewing." Crafting a new set of rules for a TTRPG, however, demands meticulous work to ensure a fair and enjoyable gaming experience.
+</p><p>This web page delves into the intersection of TTRPGs and Natural Language Processing (NLP), the discipline dedicated to enabling computers to comprehend rule-based languages. Given that the essence of a TTRPG resides in its rules, the application of NLP becomes pivotal in the intricate task of generating content that adheres to these rules.
+</p><p>Our proposal introduces "Artificer Intelligence," a GPT2 model fine-tuned on rules governing the TTRPG Dungeons and Dragons (D&D), Fifth Edition. This model specifically focuses on magic items, or a block of rules players can use to enhance their character’s capabilities. This innovative approach aims to streamline the process of creating rules-compliant content for TTRPGs, marking a significant leap forward in the synergy between artificial intelligence and the world of tabletop gaming.
+</p><h1>Background:</h1>
+
+<p>Dungeons & Dragons (D&D) is a collaborative fantasy role-playing game (RPG) that originated in 1974. It is typically played by a group of 2-6 players and a Dungeon Master (DM). Players create fictional characters and embark on adventures within a world created by the DM. The DM narrates the story, controls the non-player characters (NPCs), and adjudicates the rules of the game. Players make decisions for their characters and influence the story through their actions and dice rolls.
+</p><p>D&D uses a set of polyhedral dice (d4, d6, d8, d10, d12, and d20) to determine the outcomes of actions and combat encounters. Players consult rulebooks and character sheets to determine their character's abilities, skills, and equipment.
+</p><p>Magic items in the context of D&D are blocks of rules which represent items imbued with magical properties that enhance a character's abilities or grant them new ones. Magic items range in rarity and power, from common items that provide minor benefits to legendary artifacts that possess immense power.
+</p><p>The inclusion of magic items in D&D serves several purposes:
+<ul>
+    <li><b>Enhance character abilities:</b> Magic items can provide characters with bonuses to their attack rolls, damage rolls, saving throws, or ability scores. They can also grant access to new spells or magical abilities. 
+    </li><li><b>Introduce new challenges and opportunities:</b> The presence of magic items can create new challenges for players, as they must decide how to use these items effectively. They can also present new opportunities for players to explore, as they seek out powerful artifacts or uncover the secrets behind their creation. 
+    </li><li><b>Add depth and complexity to the game:</b> Magic items can add a layer of complexity to the game, as players must consider the various factors involved in using them, such as their potential benefits, drawbacks, and costs. 
+</li></ul>
+
+<p>Natural Language Processing (NLP) is a subfield of Artificial Intelligence (AI) concerned with the interaction between computers and human language. It encompasses various techniques that enable computers to understand, interpret, and manipulate human language in its various forms.
+</p><p>Procedural Content Generation (PCG) is a technique for automatically creating game content, such as levels, quests, and items, using algorithms and pre-defined rules. 
+</p><h1>Previous Work</h1>
+</p><p>Many of the current magic item generators pull from a list of predefined list of values. Peter Quinn’s work in [1] lays the groundwork for this research by suggesting the generation of magic items using GPT2. Newman and Liu finetune a similar model but focused on spells in  Dungeons and Dragons [2]. They use a bigger dataset of more than two thousand  which allows for more coherency in the generated output, but (1) they do not introduce any methods to control generation in the model and (2) they source their dataset from a generally unreliable and unbalanced public resource.
+</p><p>Stegeren and Myśliwiec in [3] introduce a method which our model uses which guides the generation of the model, that is using providing seperate titles to provide context for the model to suggest what should be generated. This is also used in Gonsalves’ Deep Haiku model, where keywords are extracted to provide the model subjects to generate a haiku on[4].
+
+</p><h1>Methods</h1>
+
+</p><p><b>Data:</b> The dataset consists of 12,188 magic items scraped from online open sources, such as Instagram, Reddit, Tumblr and Wikidot. We chose a community threshold value of 20 likes/upvotes to assert that a particular magic item would be included in the training data set. All items in the training dataset are also under the Open Gaming License (OGL).
+
+</p><p>The Data is formatted like so:
+ 
+<div class="thumbnail col-md-12">
+<h4 style="text-align: center;">[Name],[Type],[Rarity],[Attunement Required],[Additional Attunement Requirements],[Description]</h4>
+</div>
+
+</p><p>	Finally, here are some statistics about the dataset</p>
+
+<div class="col-md-6">
+<div id="piechart_1" style="width: 100%; height: auto;"></div>
+</div>
+<div class="col-md-6">
+<div id="piechart_2" style="width: 100%; height: auto;"></div>
+</div>
+
+<div class="thumbnail">
+<img src="./assets/wordcloud.png" class="wordcloud"></img>
+<p style="text-align: center;">A Wordcloud describing the most prevalent words in our dataset.</p>
+</div>
+
+
+
+<p><b>Training:</b> I decided to train GPT-2 since I was working with a friend’s computer which has 256 GB of RAM and 16 GB VRAM, and this was the most it could handle. For this model, we finetuned using the HappyTransformer Python Library, using a 3e-4 learning rate over 3 epochs. I used a batch size of five while training this and a weight decay of 0.1. The data was split into a 75% training set and a 25% evaluation set.
+
+</p>
+<p>To introduce methods to control generated text into the model, we use the KeyBERT model to pull keywords from the descriptions of the magic items. This allows us to specify some keywords that will be in the description and generate an item around the given keywords.</p>	
+
+<p> Here are some handpicked items the model has generated and have been edited by myself. Artwork is by Miley Wentz. You can view the items by clicking/tapping on each item.</p>
+
+<H1>INSERT COOL HTML HERE</H1>
+
+<h1>Results</h1>
+
+
+<p>Four items were generated using the fine tuned Artificer Intelligence model, and four items were generated using ChatGPT. These items were them evaluated by a group of 6 experienced Dungeons and Dragons 5e Players. The players were asked to grade the example's creativity, baance functionality, flavor, versatility and role-playing opportunities. The results are as follows:
+
+    <div id="barchart_material" style="width: 100%; height: 150%;"></div>
+
+
+<h1>Conclusion and Future Work</h1>
+
+<p>As we can see from the bar chart above, the Artificer Intelligence model is capable of generating more balanced items. This takes a lot of the balancing work away from the DM and more onto the computer.</p>
+<p>What the Artificer Intelligence model lacks is creativity. This can be explained by the fact that in our dataset, advanced and creative descriptions are "averaged" out, meaning they become less prominent of a feature due to other items that do not have them. The lack of creativity can also be explained by ChatGPT's natural ability to generate flowery text.</p>
+
+
+<p>Further research can significantly improve the model's capabilities and expand its applications. One avenue for further research involves investigating the use of large language models with significantly higher parameter counts. These models, like OpenAI's GPT-J or GPT-3, or Google's Gemma, have shown promise in generating longer, more cohesive, and better magic items. Comparative studies could be conducted to evaluate the impact of model complexity on the quality and fairness of generated magic items. This would involve analyzing the models' outputs in terms of coherence, length, adherence to game mechanics, and potential for bias.</p>
+<p>Another avenue focuses on expanding the training data. Strategies could be implemented to accumulate a more diverse and comprehensive dataset of magic items. This could involve continuing to scrape more data from existing game resources, collaborating with game designers, or crowdsourcing descriptions from players. Additionally, exploring the potential of using large language models such as GPT-3.5 to rewrite existing game content, such as spells or subclass descriptions, into novel magic items.</p>
+<p>Finally, we can manipulate the data applying more tags to the training data. Adding hyponyms (words with a specific meaning that belongs to a more general category), detecting enumerated types using SNORKEL, and categorizing by a party role could allow us to train with a more diverse set of magic items.</p>
+
+<h2>Sources Cited</h2>
+<ol>
+<li>Quinn, P. (2020). Making an AI create D&D items. Peter Quinn - GPT-2 D&D Items. <a href="https://www.peterquinn.ca/pages/projects/personal/ai_items/ai_items.html">https://www.peterquinn.ca/pages/projects/personal/ai_items/ai_items.html</a></li>
+<li>Newman, P., & Liu, Y. (2022). Generating Descriptive and Rules-Adhering Spells for Dungeons & Dragons Fifth Edition. Proceedings of the 9th Workshop on Games and Natural Language Processing within the 13th Language Resources and Evaluation Conference, 54–60.<a href="https://aclanthology.org/2022.games-1.7/">https://aclanthology.org/2022.games-1.7/</a></li>
+<li>van Stegeren, J., & Myśliwiec, J. (2021). Fine-tuning GPT-2 on annotated RPG quests for NPC dialogue generation. The 16th International Conference on the Foundations of Digital Games (FDG) 2021. <a href="https://doi.org/10.1145/3472538.3472595">https://doi.org/10.1145/3472538.3472595</a></li>
+<li>Gonsalves, R. A. (2023, September 5). Deep haiku: Teaching GPT-J to compose with syllable patterns. Medium. <a href="https://towardsdatascience.com/deep-haiku-teaching-gpt-j-to-compose-with-syllable-patterns-5234bca9701">https://towardsdatascience.com/deep-haiku-teaching-gpt-j-to-compose-with-syllable-patterns-5234bca9701</a></li>
+</ol>
+</div>
+
+</body>
+</html>
