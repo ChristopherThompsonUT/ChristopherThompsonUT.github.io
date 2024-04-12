@@ -14,7 +14,7 @@
 	
 	<style>
         .jumbotron {
-  background-image: url("./Assets/banner.png");
+  background-image: url("banner.png");
   background-size: cover;
 }
 
@@ -22,6 +22,120 @@
 	height:"auto";
 	width:400px;
 }
+
+  #card {
+    margin: 1% auto;
+    padding: 3px 0;
+    border-radius: 7px;
+    background: #000;
+    
+    height: calc(width * 1.5);
+	}
+
+    @media screen and (max-width: 768px) {
+      width: 90vw;
+    }
+
+    @media screen and (max-width: 1024px) and (min-width: 769px) {
+      width: 60vw;
+    }
+
+    @media screen and (max-width: 1366px) and (min-width: 1025px) {
+      width: 33vw;
+    }
+
+    #inner {
+      width: 96%;
+      height: 100%;
+      background: #aaa;
+      padding: 0.5rem 0;
+      position: relative;
+      margin: 0.3rem auto;
+	  }
+
+      #title {
+        border-radius: 0.4rem;
+        margin: 0 auto;
+        padding: 0 0 0 3%;
+        width: 97%;
+        background: #fff;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        box-sizing: border-box;
+		}
+
+        #cost {
+          float: right;
+          margin: 0.1rem 0.3rem 0 0;
+          background: #ccc;
+          border-radius: 50%;
+          width: 1.3rem;
+          height: 1.3rem;
+          line-height: 1.3rem;
+          text-align: center;
+        }
+
+      #image {
+		text-align:center;
+        width: 95%;
+        height: 14rem;
+        margin: 0 auto;
+      }
+
+      #type {
+        border-radius: 0.4rem;
+        margin: 0 auto;
+        padding: 0 0.5rem;
+        width: 98%;
+        background: #fff;
+        font-size: 0.9rem;
+        line-height: 1.6rem;
+        box-sizing: border-box;
+		}
+
+        #symbol {
+          float: right;
+          width: 2rem;
+          text-align: center;
+          line-height: 1.4rem;
+
+          i {
+            font-size: 1.2rem;
+          }
+
+
+      #desc {
+        background: #ccc;
+        width: 94%;
+        height: auto;
+        margin: 0 auto;
+        font-size: 0.9rem;
+        padding: 1rem 1rem;
+		}
+
+        .mana {
+          display: inline-block;
+          margin: -0.1rem 0 0 0.2rem;
+        }
+
+
+      #power {
+        background: #fff;
+        border-radius: 0.4rem;
+        float: right;
+        margin: -0.8rem 1rem 0 0;
+        padding: 0.15rem 0.4rem;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.3rem;
+      }
+
+      #footer {
+        padding: 0.5rem 0.7rem 0 0.7rem;
+      }
+
+
+
 
 
 </style>
@@ -161,7 +275,7 @@
 </div>
 
 <div class="thumbnail">
-<img src="./Assets/wordcloud.png" class="wordcloud"></img>
+<img src="Assets/wordcloud.png" class="wordcloud"></img>
 <p style="text-align: center;">A Wordcloud describing the most prevalent words in our dataset.</p>
 </div>
 
@@ -172,9 +286,273 @@
 </p>
 <p>To introduce methods to control generated text into the model, we use the KeyBERT model to pull keywords from the descriptions of the magic items. This allows us to specify some keywords that will be in the description and generate an item around the given keywords.</p>	
 
-<p> Here are some handpicked items the model has generated and have been edited by myself. Artwork is by Miley Wentz. You can view the items by clicking/tapping on each item.</p>
+<p> Here are some handpicked items the model has generated and have been edited by myself. Artwork is by Miley Wentz.</p>
 
-<H1>INSERT COOL HTML HERE</H1>
+<div class="row">
+  <div class="col-sm-4 col-lg-4">
+<div id="card">
+  <div id="inner">
+    <div id="title">
+      Dragonslayer
+      
+    </div>
+	<br>
+    <div id="image"><img src="Assets/berk_sword.png" style="height:30rem;width:auto;;"></div>
+	<br><br><br><br><br><br><br><br><br>
+    <div id="type">
+      Weapon (greatsword), legendary, (requires attunement)
+
+    </div>
+    <div id="desc">
+    This massive sword was once wielded by The Black Swordsman, a legendary warrior. Although he had served Under the Circle of the Nine Hells before disappearing, this Hero slayed most of the inhabitants of the Nine Hells. It is said that the wielder of the blade will herald the Black Swordsman's return.
+<br><br>
+The sword is stained with the blood of countless monsters, and it hums with the blood of countless souls. You gain a +3 bonus to attack and damage rolls made with this magic weapon.
+<br><br>
+<b>Hellforged.</b> This sword has initially has 6 souls in it. While attuned to this sword you can use your reaction when you reach zero hit points to channel the Nine Hells' magic and absorb 1d6 of the sword's trapped souls. You regain a number of hit points equal to half your proficiency bonus, rounded up. If you roll higher than the number of trapped souls, this effect does not occur. At each long rest, the blade recharges a number of souls equal to your proficiency bonus up to the blade's maximum of six.
+<br><br>
+<b>Demon Blood.</b>  Once per long rest you can use an action and expend two souls to make a blade of demonic blood appear anywhere within 60 feet. This operates similar the the Spiritual Weapon spell. The blade deals the same amount of slashing damage as you would a normal shortsword and an extra 1d10 necrotic damage to any target it hits. The blade shatters after 1 minute.
+<br><br>
+<b>Sentience.</b> The sword is sentient with the alignment, personality, and knowledge of the various souls trapped within it. It has hearing and Darkvision out to a range of 120 feet. The sword can speak, read, and understand Common, and can communicate telepathically with any creature it is attuned to.
+<br><br>
+<b>Personality.</b> The sword's desire is to destroy good and those who do good through their actions. The sword hungers for more souls, and it urges its wielder to explore the multiverse and seek out more powerful souls.
+    </div>
+ 
+  </div>
+</div>
+  </div>
+    <div class="col-sm-4 col-lg-4">
+<div id="card">
+  <div id="inner">
+    <div id="title">
+      Healing Staff
+    </div>
+	<br>
+    <div id="image"><img src="Assets/ekg_staff.png" style="height:30rem;width:auto;;"></div>
+	<br><br><br><br><br><br><br><br><br>
+    <div id="type">
+      Staff, rare (requires attunement by a half-elf)
+     
+    </div>
+    <div id="desc">
+	
+	
+This staff can be used as a magical quarterstaff that grants a +1 bonus to attack and damage rolls made with it. While holding this staff, you can choose to spend one or more Hit Dice to heal yourself or another creature you can see within 30 feet of you for 1d6+2 Hit Points times the number of expended Hit Dice.
+<br><br>
+<b>Healing of the Fallen.</b> The staff can also be used as a healer's kit. Whenever you stabilize a creature with this staff, they regain one hit point.
+	
+    </div>
+    
+  </div>
+</div>
+  </div>
+    <div class="col-sm-4 col-lg-4">
+<div id="card">
+  <div id="inner">
+    <div id="title">
+      <b> Breath of a Serpent</b> 
+    </div>
+    <br>
+    <div id="image"><img src="Assets/katana_zero.png" style="height:30rem;width:auto;;"></div>
+	<br><br><br><br><br><br><br><br><br>
+    <div id="type">
+      Weapon (longsword), legendary (requires attunement)
+    </div>
+    <div id="desc">
+		You have a +3 bonus to attack and damage rolls made with this magic weapon.
+		<br><br>
+<b>Tricky Moves.</b> When you are attuned to this sword you can use your bonus action to teleport instantly to any point you can see within 60 feet of yourself. This effect works like the teleport spell. Once used, this property can't be used again until the next dawn.
+<br><br>
+<b>One Step Ahead.</b> As a bonus action, you can tap this sword's hilt and unleash the power of the haste spell on yourself. You can cast this spell once per long rest.
+<br><br>
+<b>Slow and Cool.</b> While attuned to this sword, you can cast the slow spell (save DC 18) as an action. You can use this sword to cast this spell once per long rest.
+<br><br>
+<b>Cursed.</b> The power of Breath of a Serpent causes time to affect you maliciously. At the end of every long rest, make a DC 12 Wisdom saving throw. 
+<br>
+On a failed save, you are affected by the slow spell. This effect lasts until you finish a long rest. This effect can be removed using remove curse or other similar magic. On a successful save, you are unaffected by the slow spell for 24 hours.
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4 col-lg-4">
+<div id="card">
+  <div id="inner">
+    <div id="title">
+      Stained, Brutal Calamity
+      
+    </div>
+    <br>
+    <div id="image"><img src="Assets/calamitas_staff.png" style="height:30rem;width:auto;;"></div>
+	<br><br><br><br><br><br><br><br><br>
+    <div id="type">
+      Staff, very rare (requires attunement by a warlock or wizard)
+
+    </div>
+    <div id="desc">
+   This staff has been fashioned from a very sickly and grimly redwood. The staff is scalding hot from the fire that it can burn even the most skilled of necromancers. While holding this staff, you gain a +2 bonus to spell attack rolls and to the saving throw DCs of your spells.
+<br><br>
+<b>Crimson Fire.</b> While holding this staff, you can use an action to expend a number of your spell slot levels up to your spellcasting ability modifier. When you expend a spell slot of 2nd level or higher, a portion of the staff's fire burns away in a magical, burning aura. The area within a 20-foot radius of you is affected by this staff's energy. When a creature besides you enters the area for the first time on a turn or starts its turn there, it takes 4d6 fire damage and increases by 2d6 for every level of spell slot expended above the 3rd. Once this property of the staff has been used, it can't be used again until the next dawn.
+<br><br>
+<b>Curse.</b> This staff is cursed, and becoming attuned to it extends the curse to you until you are targeted by the remove curse spell or similar magic. While cursed, you gain the following flaw: "I am obsessed with death, undead and decay." Undead and undead creatures are naturally drawn to the staff, and when you die, you immediately rise as a ghoul.</div>
+ 
+  </div>
+</div>
+  </div>
+    <div class="col-sm-4 col-lg-4">
+<div id="card">
+  <div id="inner">
+    <div id="title">
+      Focus Crystal
+    </div>
+    <br>
+    <div id="image"><img src="Assets/ror2_stone.png" style="height:32rem;width:85%;;"></div>
+	<br><br><br><br><br><br><br><br><br><br>
+    <div id="type">
+      Wondrous Item, rare (requires attunement)
+     
+    </div>
+    <div id="desc">
+This crystalline focus is a small crystal ball that fits into the palm of your hand. You can use an action to activate it and increase the damage dealt by +5 to adjacent enemies from bludgeoning, piercing, or slashing damage for 1 minute. Once used, you cannot use this feature again until the next dawn.
+	
+    </div>
+
+  </div>
+</div>
+  </div>
+    <div class="col-sm-4 col-lg-4">
+<div id="card">
+  <div id="inner">
+    <div id="title">
+      <b> Psidart</b> 
+    </div>
+    <br>
+    <div id="image"><img src="Assets/mind_arrow.png" style="height:30rem;width:auto;;"></div>
+	<br><br><br><br><br><br><br><br><br>
+    <div id="type">
+      Weapon (Arrow or bolt), uncommon
+    </div>
+    <div id="desc">
+This magic arrow is crafted using the harvested parts of a mindflayer.
+<br><br>
+When you roll a 20 on a ranged attack roll made with this arrow, the arrow deals additional psychic damage equal to 1d4 + your Intelligence modifier (minimum of 1).
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4 col-lg-4">
+<div id="card">
+  <div id="inner">
+    <div id="title">
+      Staff of Snoop Dogg
+      
+    </div>
+    <br>
+    <div id="image"><img src="Assets/snoop_dogg.png" style="height:30rem;width:auto;;"></div>
+	<br><br><br><br><br><br><br><br><br>
+    <div id="type">
+      Staff, rare, requires attunement to a bard
+
+    </div>
+    <div id="desc">
+
+This smooth, wooden staff is topped by a set of nine pine branches that, when they strike, emit a calming scent. It is typically found in a forest or urban center. The staff has 6 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC and spellcasting ability: calm emotions (2 charges) or silent image (2 charges).
+<br><br>
+In addition, you can use an action to expend 4 of its charges to shoot a cloud of thick smoke from the staff. The cloud is 20 feet in radius and lasts for 1 minute or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it. The cloud moves with you and becomes centered on you. When a creature other than you enters the cloud for the first time on a turn or starts its turn there, it must succeed on a DC 13 Wisdom saving throw or be affected by the confusion spell. A creature that succeeds on the saving throw is immune to the cloud for the duration. </div>
+<br><br>
+The staff regains 1d4+2 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff shatters and is destroyed.
+
+  </div>
+</div>
+  </div>
+    <div class="col-sm-4 col-lg-4">
+<div id="card">
+  <div id="inner">
+    <div id="title">
+      Roar of the Jungle Dragon
+    </div>
+    <br>
+    <div id="image"><img src="Assets/dragon_spear.png" style="height:30rem;width:auto;;"></div>
+	<br><br><br><br><br><br><br><br><br>
+    <div id="type">
+      Weapon (spear),very rare, (requires attunement)
+     
+    </div>
+    <div id="desc">
+This spear has embers which travel through it's elaborate rune covered handle. When the wielder is in particular distress, the air will grow warmer around the wielder as the spear awakens.
+<br><br>
+<b>Roar of the Inferno.</b> As an action, the user can summon a swirling, volcanic inferno. The area in a 15-ft radius centered on the wielder is considered heavily obscured, and any other creatures caught in the area must make a DC 16 Dexterity Saving Throw or take 4d6 Fire Damage. Once used this feature cannot be used again until the next dawn.
+<br><br>
+<b>Dragon's Flight.</b> Once per Day, the wielder can use a bonus action to fly up to 40ft in a straight line towards a target. This movement does not provoke opportunity attacks. Once used this feature cannot be used again until the next Dawn.
+<br><br>
+<b>Awakening.</b> When you reach less that 1/2 of your maximum HP, you gain the benefits of the spear's awakened state. This allows you to gain the following benefits:
+
+<ul>
+<li>You gain resistance to Fire damage</li>
+<li>You gain a flight speed of 30ft</li>
+<li>You gain Truesight</li>
+<li>You gain a breath weapon of fire for 10 minutes</li>
+</ul>
+
+<b>Curse.</b> This item is cursed, a fact that is revealed only when an identify spell is cast on the spear. While the spear is not in the awakened state, you have vulnerability to cold damage.
+	
+    </div>
+
+  </div>
+</div>
+  </div>
+    <div class="col-sm-4 col-lg-4">
+<div id="card">
+  <div id="inner">
+    <div id="title">
+      <b>Luminous Lantern</b> 
+    </div>
+    <br>
+    <div id="image"><img src="Assets/jewel_lantern.png" style="height:30rem;width:auto;;"></div>
+	<br><br><br><br><br><br><br><br><br>
+    <div id="type">
+      Wondrous Item, uncommon
+    </div>
+    <div id="desc">
+		This lantern can detect the presence of wealth, gems and other valuable items. The latern shines dimly in darkness and provides bright light in a 20-foot radius and dim light for an additional 20 feet if within 20 feet of any treasure.
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4 col-lg-4">
+<div id="card">
+  <div id="inner">
+    <div id="title">
+      Figurine of Wondrous Power - Prismarine Unicorn
+      
+    </div>
+    <br>
+    <div id="image"><img src="Assets/stone_unicorn.png" style="height:30rem;width:auto;;"></div>
+	<br><br><br><br><br><br><br><br><br>
+    <div id="type">
+      Wondrous item, legendary
+
+    </div>
+    <div id="desc">
+
+
+This statuette is a mythical unicorn laying down on its side. The figure is of a unicorn, which bears the crest of the Prismarine Archmage. 
+<br><br>
+While holding the statuette, you can use an action to speak the command word and cause it to transform into a unicorn.
+<br><br>
+The unicorn shares your initiative count, but it takes its turn immediately after yours. It obeys any verbal commands that you issue to it (no action required by you). If you don't issue any commands to it, it defends itself from hostile creatures but otherwise takes no actions. If you don't issue any commands to it, it defends itself from hostile creatures but otherwise takes no actions. Once the unicorn has been used, it can't transform again until the next dawn.
+  </div>
+</div>
+  </div>
+  </div>
+  </div>
 
 <h1>Results</h1>
 
@@ -201,7 +579,11 @@
 <li>van Stegeren, J., & Myśliwiec, J. (2021). Fine-tuning GPT-2 on annotated RPG quests for NPC dialogue generation. The 16th International Conference on the Foundations of Digital Games (FDG) 2021. <a href="https://doi.org/10.1145/3472538.3472595">https://doi.org/10.1145/3472538.3472595</a></li>
 <li>Gonsalves, R. A. (2023, September 5). Deep haiku: Teaching GPT-J to compose with syllable patterns. Medium. <a href="https://towardsdatascience.com/deep-haiku-teaching-gpt-j-to-compose-with-syllable-patterns-5234bca9701">https://towardsdatascience.com/deep-haiku-teaching-gpt-j-to-compose-with-syllable-patterns-5234bca9701</a></li>
 </ol>
+<h2>Link to Colab</h2>
+<a href="https://colab.research.google.com/drive/1ha5QQCYnAc0hZyy0Cf0VrETrFF0KhDTS">https://colab.research.google.com/drive/1ha5QQCYnAc0hZyy0Cf0VrETrFF0KhDTS</a>
+<p>The above is a link to the colab notebook which runs the model and generates the magic items. More instructions are given there.</p>
 </div>
+
 
 </body>
 </html>
