@@ -6,6 +6,10 @@
 					margin: 0;
 					padding: 0;
 				}
+				.b_select, .b_start{
+					background_color: #ffffff;
+					color: #000000;
+				}
 			</style>
 		</head>
 		<body>
@@ -23,18 +27,5 @@
 				EJS_gameUrl = new Blob([Uint8Array.from(atob(window.gameData), (m) => m.codePointAt(0))]);
 			</script>
 			<script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
-			<style>
-			.ejs_touch_button,
-			.ejs_gamepad_button {
-			  opacity: 0.85 !important;
-			  background: #222222 !important;
-			  border: 1px solid #555555 !important;
-			}
-
-			.ejs_touch_button:active {
-			  opacity: 1 !important;
-			  background: #444444 !important;
-}
-			</style>
 		</body>
 	</html>
